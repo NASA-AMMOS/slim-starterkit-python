@@ -1,0 +1,12 @@
+[build-system]
+requires = [
+    "importlib-metadata>=3.6;python_version<='3.7'",
+    "setuptools>=62.6",
+    "setuptools_scm[toml]>=6.4.2",
+    "wheel>=0.37.1",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+write_to = "starterkit/version.py"
+write_to_template = "__version__ = '{version}'\n"
