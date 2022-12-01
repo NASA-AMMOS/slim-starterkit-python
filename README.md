@@ -34,6 +34,8 @@
 ## Features
 
 * [INSERT LIST OF FEATURES IMPORTANT TO YOUR USERS HERE]
+* Python build tooling based on PEP-517 and PEP-518 standards
+* Build, release and publish automation takes place automatically using GitHub Actions. 
   
 <!-- ☝️ Replace with a bullet-point list of your features ☝️ -->
 
@@ -74,17 +76,83 @@ This guide provides a quick way to get started with our project. Please see our 
 
 <!-- ☝️ Replace with a list of your usage examples, including screenshots if possible, and link to external documentation for details ☝️ -->
 
-### Build Instructions (if applicable)
+### Build Instructions
+The [GitHub Action declaration](https://github.com/NASA-AMMOS/slim-starterkit-python/blob/main/.github/workflows/python-publish.yml) specifies the series of commands to release and publish the product. These commands are staged and carried out automatically when a repo tag or release is created.
 
-1. [INSERT STEP-BY-STEP BUILD INSTRUCTIONS HERE, WITH OPTIONAL SCREENSHOTS]
+#### Automated Build
+1. Manually update <product_name>/version.py with the next release version, commit and push to the `main` branch:
+``` 
+git add starterkit/version.py && git commit -m "Issue #<issue_number>: Updated version for release." && git push
+```
+2. Perform a release using the [web UI on GitHub `main` branch](https://github.com/NASA-AMMOS/slim-starterkit-python/releases/new)
+3. Build, packaging and release to PyPi will take place automatically in [GitHub Actions Workflows](https://github.com/NASA-AMMOS/slim-starterkit-python/actions)
 
-<!-- ☝️ Replace with a numbered list of your build instructions, including expected results / outputs with optional screenshots ☝️ -->
+<!-- ☝️ If necessary, update with a numbered list of your build instructions, including expected results / outputs with optional screenshots ☝️ -->
+
+#### Manual Build
+1. Manually update <product_name>/version.py, commit and push:
+``` 
+git add starterkit/version.py && git commit -m "Issue #<issue_number>: Updated version for release." && git push
+```
+2. Tag using the Git command line: 
+``` 
+git tag -a -m "Issue #<issue_number>: Release version <version>" <version>
+```
+**Note:** The `<version>` must match that in the `<product_name>/version.py` file.
+3. Package the product:
+- Package an `sdist` and a `tarball`: (traditional)
+``` 
+git checkout <product_name>/version.py && python3 -m build --wheel
+```
+- ... or package an `sdist` and a `zip` ...
+``` 
+python3 -m build --wheel && python3 setup.py sdist --format=zip
+```
+4. Publish product to PyPi for public distribution by using [Twine](https://twine.readthedocs.io/en/latest/):
+``` 
+twine check dist/* && twine upload --verbose
+```
+... or as a ZIP ...
+``` 
+twine check dist/* && twine upload --verbose dist/*.whl dist/*.zip
+```
+
+<!-- ☝️ If necessary, update with a numbered list of your build instructions, including expected results / outputs with optional screenshots ☝️ -->
 
 ### Test Instructions (if applicable)
-
 1. [INSERT STEP-BY-STEP TEST INSTRUCTIONS HERE, WITH OPTIONAL SCREENSHOTS]
 
 <!-- ☝️ Replace with a numbered list of your test instructions, including expected results / outputs with optional screenshots ☝️ -->
+
+#### Local Build Testing
+A simplified build and release workflow is available for testing locally.  
+
+Pre-steps:
+1. Install build tooling
+```
+pip3 install --upgrade build setuptools_scm twine wheel
+```
+2. Install product requirements
+``` 
+pip3 --exists-action w install -r requirements.txt
+```  
+
+Repeatable steps:
+1. Clean application:
+``` 
+rm -r build dist __pycache__ *.egg* .egg* ; git checkout starterkit/version.py ; pip3 uninstall starterkit -y
+```
+2. Build and install release locally:
+``` 
+python3 -m build --wheel && python3 setup.py sdist --format=zip
+pip3 install <product_name> --no-index --find-links file:///<path_to_repo>/dist/
+```  
+... alternately, install an editable build using [Pip tooling](https://pypi.org/project/pip/) ...
+``` 
+pip install -e
+```
+
+<!-- ☝️ If necessary, update with numbered list of your test instructions, including expected results / outputs with optional screenshots ☝️ -->
 
 ## Changelog
 
