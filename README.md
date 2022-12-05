@@ -54,9 +54,30 @@ This guide provides a quick way to get started with our project. Please see our 
 
 ### Requirements
 
-* [INSERT LIST OF REQUIREMENTS HERE]
+1. [INSERT LIST OF REQUIREMENTS HERE]
   
 <!-- ☝️ Replace with a numbered list of your requirements, including hardware if applicable ☝️ -->
+
+#### Build Automation
+1. [Shared PyPi API Token](https://test.pypi.org/help#apitoken) installed in [GitHub Repository Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository).
+2. Execution permissions to [allow GitHub Actions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository) and to [tag and release software](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account).
+
+#### Local Build Testing
+Build packaging is testable locally. Publishing directly to PyPi is not recommended as PyPi permits one upload per release version.
+1. Install build tooling
+```
+pip3 install --upgrade build setuptools_scm twine wheel
+```
+2. Install product requirements
+``` 
+pip3 --exists-action w install -r requirements.txt
+```  
+3. [Testing publication to Test PyPi](https://packaging.python.org/en/latest/guides/using-testpypi/)  
+Twine will prompt for your Test PyPi username and password.
+```
+twine check dist/*
+twine upload --repository testpypi --verbose dist/*
+```
 
 ### Setup Instructions
 
@@ -77,22 +98,19 @@ This guide provides a quick way to get started with our project. Please see our 
 <!-- ☝️ Replace with a list of your usage examples, including screenshots if possible, and link to external documentation for details ☝️ -->
 
 ### Build Instructions
-The [GitHub Action declaration](https://github.com/NASA-AMMOS/slim-starterkit-python/blob/main/.github/workflows/python-publish.yml) specifies the series of commands to release and publish the product. These commands are staged and carried out automatically when a repo tag or release is created.
+The [GitHub Action declaration](./.github/workflows/python-publish.yml) specifies the series of commands to release and publish the product. These commands are staged and carried out automatically when a repo tag or release is created.
 
 #### Automated Build
-1. Manually update <product_name>/version.py with the next release version, commit and push to the `main` branch:
-``` 
-git add starterkit/version.py && git commit -m "Issue #<issue_number>: Updated version for release." && git push
-```
-2. Perform a release using the [web UI on GitHub `main` branch](https://github.com/NASA-AMMOS/slim-starterkit-python/releases/new)
-3. Build, packaging and release to PyPi will take place automatically in [GitHub Actions Workflows](https://github.com/NASA-AMMOS/slim-starterkit-python/actions)
+1. Edit the `<product_name>/version.py` file with the next release version using the web UI on GitHub `main` branch.
+2. Perform a release using the [web UI on GitHub `main` branch](./releases/new)
+3. Build, packaging and release to PyPi will take place automatically in [GitHub Actions Workflows](./actions)
 
 <!-- ☝️ If necessary, update with a numbered list of your build instructions, including expected results / outputs with optional screenshots ☝️ -->
 
 #### Manual Build
-1. Manually update <product_name>/version.py, commit and push:
+1. Manually update <product_name>/version.py with the next release version, commit and push to the `main` branch::
 ``` 
-git add starterkit/version.py && git commit -m "Issue #<issue_number>: Updated version for release." && git push
+git add <product_name>/version.py && git commit -m "Issue #<issue_number>: Updated version for release." && git push
 ```
 2. Tag using the Git command line: 
 ``` 
@@ -127,20 +145,9 @@ twine check dist/* && twine upload --verbose dist/*.whl dist/*.zip
 #### Local Build Testing
 A simplified build and release workflow is available for testing locally.  
 
-Pre-steps:
-1. Install build tooling
-```
-pip3 install --upgrade build setuptools_scm twine wheel
-```
-2. Install product requirements
-``` 
-pip3 --exists-action w install -r requirements.txt
-```  
-
-Repeatable steps:
 1. Clean application:
 ``` 
-rm -r build dist __pycache__ *.egg* .egg* ; git checkout starterkit/version.py ; pip3 uninstall starterkit -y
+rm -r build dist __pycache__ *.egg* .egg* ; git checkout <product_name>/version.py ; pip3 uninstall <product_name> -y
 ```
 2. Build and install release locally:
 ``` 
@@ -184,10 +191,7 @@ No questions yet. Propose a question to be added here by reaching out to our con
 
 ## Contributing
 
-[INSERT LINK TO CONTRIBUTING GUIDE OR FILL INLINE HERE]
-<!-- example link to CONTRIBUTING.md>
-Interested in contributing to our project? Please see our: [CONTRIBUTING.md](CONTRIBUTING.md)
--->
+Interested in contributing to our project? Please see our: [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 <!-- example inline contributing guide>
 1. Create an GitHub issue ticket describing what changes you need (e.g. issue-1)
