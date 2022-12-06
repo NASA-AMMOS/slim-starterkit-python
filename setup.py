@@ -1,4 +1,5 @@
 #! /usr/bin/env python3
+# placeholder setup.py to support legacy setuptools functionality
 
 from setuptools import setup
 

@@ -59,8 +59,8 @@ This guide provides a quick way to get started with our project. Please see our 
 <!-- ☝️ Replace with a numbered list of your requirements, including hardware if applicable ☝️ -->
 
 #### Build Automation
-1. [Shared PyPi API Token](https://test.pypi.org/help#apitoken) installed in [GitHub Repository Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository).
-2. Execution permissions to [allow GitHub Actions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository) and to [tag and release software](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account).
+1. [Shared PyPi API Token](https://test.pypi.org/help#apitoken) installed in [GitHub Repository Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) named `PYPI_API_TOKEN`.
+2. Execute permissions to [allow GitHub Actions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository) and [software tag and release](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account).
 
 #### Local Build Testing
 Build packaging is testable locally. Publishing directly to PyPi is not recommended as PyPi permits one upload per release version.
