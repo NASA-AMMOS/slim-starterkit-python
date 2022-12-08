@@ -58,26 +58,24 @@ This guide provides a quick way to get started with our project. Please see our 
   
 <!-- ☝️ Replace with a numbered list of your requirements, including hardware if applicable ☝️ -->
 
-#### Build Automation
-1. [Shared PyPi API Token](https://test.pypi.org/help#apitoken) installed in [GitHub Repository Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) named `PYPI_API_TOKEN`.
-2. Execute permissions to [allow GitHub Actions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository) and [software tag and release](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account).
+#### Build System Requirements
+Certain properties and permission settings are necessary in GitHub for builds to run automatically. On local development systems builds may be tested in similar fashion with proper tooling installed.
 
-#### Local Build Testing
-Build packaging is testable locally. Publishing directly to PyPi is not recommended as PyPi permits one upload per release version.
-1. Install build tooling
+##### Required repository settings
+1. [Shared PyPi API Token](https://test.pypi.org/help#apitoken) installed in [GitHub Repository Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository) named `PYPI_API_TOKEN`.
+2. Permissions to [execute GitHub Actions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#managing-github-actions-permissions-for-your-repository) and [perform software tag and release](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account).
+<!-- ☝️ If necessary, update with a numbered list of your build requirements, including hardware if applicable ☝ -->
+
+##### Required local tooling
+1. Build tooling modules
 ```
 pip3 install --upgrade build setuptools_scm twine wheel
 ```
-2. Install product requirements
+2. Product required modules (`requirements.txt`)
 ``` 
 pip3 --exists-action w install -r requirements.txt
 ```  
-3. [Testing publication to Test PyPi](https://packaging.python.org/en/latest/guides/using-testpypi/)  
-Twine will prompt for your Test PyPi username and password.
-```
-twine check dist/*
-twine upload --repository testpypi --verbose dist/*
-```
+<!-- ☝️ If necessary, update with a numbered list of your build requirements, including hardware if applicable ☝ -->
 
 ### Setup Instructions
 
@@ -98,17 +96,17 @@ twine upload --repository testpypi --verbose dist/*
 <!-- ☝️ Replace with a list of your usage examples, including screenshots if possible, and link to external documentation for details ☝️ -->
 
 ### Build Instructions
-The [GitHub Action declaration](./.github/workflows/python-publish.yml) specifies the series of commands to release and publish the product. These commands are staged and carried out automatically when a repo tag or release is created.
+A [GitHub Action](.github/workflows/python-publish.yml) configuration specifies the series of commands to release and publish the product. Commands are staged and carried out automatically when a tagged release is published to the main branch.
 
-#### Automated Build
+#### Automated Build Kickoff
 1. Edit the `<product_name>/version.py` file with the next release version using the web UI on GitHub `main` branch.
-2. Perform a release using the [web UI on GitHub `main` branch](./releases/new)
-3. Build, packaging and release to PyPi will take place automatically in [GitHub Actions Workflows](./actions)
+2. [Perform a release](releases/new) using the web UI on GitHub `main` branch
+3. Build, packaging and release to PyPi will execute automatically using [GitHub Actions Workflows](actions)
 
 <!-- ☝️ If necessary, update with a numbered list of your build instructions, including expected results / outputs with optional screenshots ☝️ -->
 
 #### Manual Build
-1. Manually update <product_name>/version.py with the next release version, commit and push to the `main` branch::
+1. Manually update `<product_name>/version.py` with the next release version, commit and push to the `main` branch:
 ``` 
 git add <product_name>/version.py && git commit -m "Issue #<issue_number>: Updated version for release." && git push
 ```
@@ -143,7 +141,7 @@ twine check dist/* && twine upload --verbose dist/*.whl dist/*.zip
 <!-- ☝️ Replace with a numbered list of your test instructions, including expected results / outputs with optional screenshots ☝️ -->
 
 #### Local Build Testing
-A simplified build and release workflow is available for testing locally.  
+A simplified build and release workflow is available for testing locally. Publishing directly to PyPi is not recommended as PyPi permits one upload per release version.  
 
 1. Clean application:
 ``` 
@@ -152,13 +150,18 @@ rm -r build dist __pycache__ *.egg* .egg* ; git checkout <product_name>/version.
 2. Build and install release locally:
 ``` 
 python3 -m build --wheel && python3 setup.py sdist --format=zip
-pip3 install <product_name> --no-index --find-links file:///<path_to_repo>/dist/
+pip3 install <product_name> --no-index --find-links file:///<local_path_to_repo>/dist/
 ```  
 ... alternately, install an editable build using [Pip tooling](https://pypi.org/project/pip/) ...
 ``` 
 pip install -e
 ```
-
+3. [Testing publication to Test PyPi](https://packaging.python.org/en/latest/guides/using-testpypi/)  
+Twine will prompt for your Test PyPi username and password.
+```
+twine check dist/*
+twine upload --repository testpypi --verbose dist/*
+```
 <!-- ☝️ If necessary, update with numbered list of your test instructions, including expected results / outputs with optional screenshots ☝️ -->
 
 ## Changelog
@@ -191,7 +194,7 @@ No questions yet. Propose a question to be added here by reaching out to our con
 
 ## Contributing
 
-Interested in contributing to our project? Please see our: [CONTRIBUTING.md](./CONTRIBUTING.md)
+Interested in contributing to our project? Please see our: [CONTRIBUTING.md](CONTRIBUTING.md)
 
 <!-- example inline contributing guide>
 1. Create an GitHub issue ticket describing what changes you need (e.g. issue-1)
