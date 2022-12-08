@@ -4,12 +4,12 @@ import sys
 
 from api.text_processor import TextWriter
 import importlib_metadata as metadata
-import starterkit.version as v
+import slim_starterkit.version as v
 
 try:
     version = metadata.version(__name__)
 except metadata.PackageNotFoundError:
-    # package is not installed, try reading from starterkit script
+    # package is not installed, try reading from slim_starterkit script
     version = v.__version__ if v.__version__ else "unset"
     pass
 

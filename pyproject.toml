@@ -8,5 +8,5 @@ requires = [
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools_scm]
-write_to = "starterkit/version.py"
+write_to = "slim_starterkit/version.py"
 write_to_template = "__version__ = '{version}'\n"
