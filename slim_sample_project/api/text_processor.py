@@ -12,8 +12,11 @@ class TextWriter:
     def __init__(self, color=None):
         """
         Initialization method for TextWriter class.
-        :param color: A color to display provided text characters.
+        :param color:
         :type color: AnsiFore
+        @param color:  A Colorama ANSI color Enum value used
+            to display provided text characters.
+        @type color: Fore
         """
         if not color:
             self.color = [Fore.CYAN, Fore.BLACK, Fore.YELLOW][randint(0, 2)]
