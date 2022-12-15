@@ -99,26 +99,26 @@ pip3 --exists-action w install -r requirements.txt
 A [GitHub Action](.github/workflows/python-publish.yml) configuration specifies the series of commands to release and publish the product. Commands are staged and carried out automatically when a tagged release is published to the main branch.
 
 #### Automated Build Kickoff
-1. Edit the `<product_name>/version.py` file with the next release version using the web UI on GitHub `main` branch.
+1. Edit the `[INSERT YOUR PACKAGE NAME]/version.py` file with the next release version using the web UI on GitHub `main` branch.
 2. [Perform a release](releases/new) using the web UI on GitHub `main` branch
 3. Build, packaging and release to PyPi will execute automatically using [GitHub Actions Workflows](actions)
 
 <!-- ☝️ If necessary, update with a numbered list of your build instructions, including expected results / outputs with optional screenshots ☝️ -->
 
 #### Manual Build
-1. Manually update `<product_name>/version.py` with the next release version, commit and push to the `main` branch:
+1. Manually update `[INSERT YOUR PACKAGE NAME]/version.py` with the next release version, commit and push to the `main` branch:
 ``` 
-git add <product_name>/version.py && git commit -m "Issue #<issue_number>: Updated version for release." && git push
+git add [INSERT YOUR PACKAGE NAME]/version.py && git commit -m "Issue #<issue_number>: Updated version for release." && git push
 ```
 2. Tag using the Git command line: 
 ``` 
 git tag -a -m "Issue #<issue_number>: Release version <version>" <version>
 ```
-**Note:** The `<version>` must match that in the `<product_name>/version.py` file.
+**Note:** The `<version>` must match that in the `[INSERT YOUR PACKAGE NAME]/version.py` file.
 3. Package the product:
 - Package an `sdist` and a `tarball`: (traditional)
 ``` 
-git checkout <product_name>/version.py && python3 -m build --wheel
+git checkout [INSERT YOUR PACKAGE NAME]/version.py && python3 -m build --wheel
 ```
 - ... or package an `sdist` and a `zip` ...
 ``` 
@@ -145,12 +145,12 @@ A simplified build and release workflow is available for testing locally. Publis
 
 1. Clean application:
 ``` 
-rm -r build dist __pycache__ *.egg* .egg* ; git checkout <product_name>/version.py ; pip3 uninstall <product_name> -y
+rm -r build dist __pycache__ *.egg* .egg* ; git checkout [INSERT YOUR PACKAGE NAME]/version.py ; pip3 uninstall [INSERT YOUR PACKAGE NAME] -y
 ```
 2. Build and install release locally:
 ``` 
 python3 -m build --wheel && python3 setup.py sdist --format=zip
-pip3 install <product_name> --no-index --find-links file://<local_path_to_repo>/dist/
+pip3 install [INSERT YOUR PACKAGE NAME] --no-index --find-links file://<local_path_to_repo>/dist/
 ```  
 ... alternately, install an editable build using [Pip tooling](https://pypi.org/project/pip/) ...
 ``` 
