@@ -106,6 +106,7 @@ A [GitHub Action](.github/workflows/python-publish.yml) configuration specifies 
 <!-- ☝️ If necessary, update with a numbered list of your build instructions, including expected results / outputs with optional screenshots ☝️ -->
 
 #### Manual Build
+These instructions must be entered from the local directory checked out from source control.
 1. Manually update `[INSERT YOUR PACKAGE NAME]/version.py` with the next release version, commit and push to the `main` branch:
 ``` 
 git add [INSERT YOUR PACKAGE NAME]/version.py && git commit -m "Issue #<issue_number>: Updated version for release." && git push
@@ -141,6 +142,7 @@ twine check dist/* && twine upload --verbose dist/*.whl dist/*.zip
 <!-- ☝️ Replace with a numbered list of your test instructions, including expected results / outputs with optional screenshots ☝️ -->
 
 #### Local Build Testing
+These instructions must be entered from the local directory checked out from source control.
 A simplified build and release workflow is available for testing locally. Publishing directly to PyPi is not recommended as PyPi permits one upload per release version.  
 
 1. Clean application:
