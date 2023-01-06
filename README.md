@@ -152,7 +152,7 @@ rm -r build dist __pycache__ *.egg* .egg* ; git checkout [INSERT YOUR PACKAGE NA
 2. Build and install release locally:
 ``` 
 python3 -m build --wheel && python3 setup.py sdist --format=zip
-pip3 install [INSERT YOUR PACKAGE NAME] --no-index --find-links file://<local_path_to_repo>/dist/
+pip3 install [INSERT YOUR PACKAGE NAME] --no-index --find-links file://${PWD}/dist/
 ```  
 ... alternately, install an editable build using [Pip tooling](https://pypi.org/project/pip/) ...
 ``` 
