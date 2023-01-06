@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: 'pip'
+    directory: '/' # location of package manifests
+    schedule:
+      interval: 'daily'
+      time: '09:00'
+      timezone: 'America/Los_Angeles'
+    target-branch: 'main'
+    labels:
+      - 'dependencies'
