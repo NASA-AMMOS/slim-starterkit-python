@@ -1,0 +1,14 @@
+[build-system]
+requires = [
+    "importlib-metadata>=3.6;python_version<='3.7'",
+    "setuptools>=62.6",
+    "setuptools_scm[toml]>=6.4.2",
+    "wheel>=0.37.1",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools_scm]
+# [MODIFY FOR YOUR PROJECT] ###################################################
+write_to = "slim_sample_project/version.py"
+# [END MODIFY FOR YOUR PROJECT] ##############################################
+write_to_template = "__version__ = '{version}'\n"
