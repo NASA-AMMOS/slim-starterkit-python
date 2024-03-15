@@ -1,6 +1,7 @@
 # Sample code: REPLACE with project code.
-from colorama import Fore, Back, Style
 from random import randint
+
+from colorama import Fore, Back, Style
 
 
 class TextWriter:
@@ -29,8 +30,16 @@ class TextWriter:
         """
         Output writer to apply color settings to terminal text.
         :param text: The value to write to a string.
-        :type text: Any type that supports an internal str reporesentation.
+        :type text: Any type that supports an internal str representation.
         """
         if not text:
             text = "Hello World"
         print(self.color, self.bg, self.style, str(text), Style.RESET_ALL)
+
+    def __str__(self):
+        """
+        Override default str method to return a string representation of the text properties.
+        @return: str representing class instance text properties
+        """
+        desc = f"color: {self.color}, background: {self.bg}, style: {self.style}"
+        return desc

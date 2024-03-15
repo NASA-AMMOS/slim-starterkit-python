@@ -137,6 +137,7 @@ twine check dist/* && twine upload --verbose dist/*.whl dist/*.zip
 <!-- ☝️ If necessary, update with a numbered list of your build instructions, including expected results / outputs with optional screenshots ☝️ -->
 
 ### Test Instructions (if applicable)
+
 1. [INSERT STEP-BY-STEP TEST INSTRUCTIONS HERE, WITH OPTIONAL SCREENSHOTS]
 
 <!-- ☝️ Replace with a numbered list of your test instructions, including expected results / outputs with optional screenshots ☝️ -->
@@ -207,12 +208,11 @@ Interested in contributing to our project? Please see our: [CONTRIBUTING.md](CON
 **Working on your first pull request?** See guide: [How to Contribute to an Open Source Project on GitHub](https://kcd.im/pull-request)
 -->
 
-[INSERT LINK TO YOUR CODE_OF_CONDUCT.md OR SHARE TEXT HERE]
-<!-- example link to CODE_OF_CONDUCT.md>
 For guidance on how to interact with our team, please see our code of conduct located at: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
--->
 
 <!-- ☝️ Replace with a text describing how people may contribute to your project, or link to your contribution guide directly ☝️ -->
+
+For guidance on our governance approach, including decision-making process and our various roles, please see our governance model at: [GOVERNANCE.md](GOVERNANCE.md)
 
 ## License
 

@@ -1,4 +1,4 @@
-# Contributing Guide
+# Contributing to [INSERT YOUR PROJECT NAME]
 
 Thanks for taking the time to consider contributing! We very much appreciate your time and effort. This document outlines the many ways you can contribute to our project, and provides detailed guidance on best practices. We look forward to your help!
 
@@ -22,11 +22,15 @@ Reviewers reviewing your patch will look for the sign-off before deciding to acc
 
 ### License
 
-Our project has our licensing terms, including rules governing redistribution, documented in our `LICENSE` file. Please take a look at that file and ensure you understand the terms. This will impact how we, or others, use your contributions.
+Our project has our licensing terms, including rules governing redistribution, documented in our [LICENSE](LICENSE) file. Please take a look at that file and ensure you understand the terms. This will impact how we, or others, use your contributions.
 
 ### Code of Conduct
 
-Our Code of Conduct helps facilitate a positive interaction environment for everyone involved with the team, and provides guidance on what to do if you experience problematic behavior. Read more in our `CODE_OF_CONDUCT.md`, and make sure you agree to its terms. 
+Our Code of Conduct helps facilitate a positive interaction environment for everyone involved with the team, and provides guidance on what to do if you experience problematic behavior. Read more in our [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), and make sure you agree to its terms. 
+
+### Governance Model
+
+Our Governance model helps outline our project's decision making and roles-based expectations. Read more in our [GOVERNANCE.md](GOVERNANCE.md). 
 
 ### Developer Environment
 
@@ -35,7 +39,16 @@ For patch contributions, see our [Developer Documentation]([INSERT YOUR DEVELOPM
 At a minimum however to submit patches (if using Git), you'll want to ensure you have:
 1. An account on the Version Control System our project uses (i.e. GitHub).
 2. The Version Control System client (i.e. Git) installed on your local machine.
-3. The ability to edit, build, and test our project on your local machine. Again, see our `README.md` or detailed developer guide for more details 
+3. The ability to edit, build, and test our project on your local machine. Again, see our [README.md](README.md) or detailed developer guide for more details 
+
+### Communication Channels
+
+Before contributing changes to our project, it's a great idea to be familiar with our communication channels and to socialize your potential contributions to get feedback early. This will help give you context for your contributions, no matter their form.
+
+Our communication channels are:
+- [Issue tracking system]([INSERT LINK TO ISSUE TRACKING SYSTEM]) - a regularly monitored area to report issues with our software or propose changes
+- [Discussion board]([INSERT LINK TO DISCUSSION BOARD OR MAILING LIST]) - an permanently archived place to hold conversations related to our project, and to propose as well as show+tell topics to the contributor team. This resource can be searched for old discussions.
+- [INSERT ADDITIONAL COMMUNICATION CHANNELS FOR YOUR PROJECT, EX: SLACK, TWITTER, YOUTUBE, ETC.]
 
 ### Communication Channels
 
@@ -72,12 +85,12 @@ Make sure people are aware you're working on a patch! Check out our [issue track
 #### Choose the Right Branch to Fork
 
 Our project typically has the following branches available, make sure to fork either the default branch or a branch someone else already tagged with a particular issue ticket you're working with.
-- (default) `main`[INSERT DEFAULT VCS BRANCH NAME HERE]
-- [INSERT ADDITIONAL TYPICAL VCS BRANCH NAMES HERE]
+- `main`[INSERT DEFAULT VCS BRANCH NAME HERE] - default branch
+- [INSERT ADDITIONAL TYPICAL VCS BRANCH NAMES HERE] - 
 
 ### Make your Modifications
 
-Within your local development environment, this is the stage at which you'll propose your changes, and commit those changes back to version control. See the `README.md` or development guide for more specifics on what you'll need as prerequisites to setup your local development environment.
+Within your local development environment, this is the stage at which you'll propose your changes, and commit those changes back to version control. See the [README.md](README.md) or development guide for more specifics on what you'll need as prerequisites to setup your local development environment.
 
 #### Commit Messages
 
@@ -97,22 +110,7 @@ Additionally, remember to "Sign-Off" on your commits to align with our [Develope
 
 Pull requests are the core way our project will receive your patch contributions. Navigate to your branch on your own fork within the version control system, and submit a pull request or submit the patch text to our project. 
 
-Please make sure to provide a meaningful text description to your pull requests, whenever submitted. Use the following template:
-```
-## Purpose
-- Clear, easy-to-understand sentences outlining the purpose of the PR
-## Proposed Changes
-- [ADD] ...
-- [CHANGE] ...
-- [FIX] ...
-## Issues
-- Links to relevant issues
-- Example: issue-XYZ
-## Testing
-- Provide some proof you've tested your changes 
-- Example: test results available at ...
-- Example: tested on operating system ...
-```
+Please make sure to provide a meaningful text description to your pull requests, whenever submitted. Our pull-request template will be auto-generated for you when you create your pull-request. See the template [here]([.github/PULL_REQUEST_TEMPLATE.md]). 
 
 **Working on your first Pull Request?** See guide: [How to Contribute to an Open Source Project on GitHub](https://kcd.im/pull-request)
 
@@ -167,7 +165,7 @@ I've noticed several other issues that are of the same category as this issue. S
 #### Submitting Bug Issues
 
 Resolving bugs is a priority for our project. We welcome bug reports. However, please make sure to do the following prior to submitting a bug report:
-- **Check for duplicates** - there may be a bug report already describing your issue, so check the [issue tracking system]([INSERT LINK TO YOUR ISSUE TRACKING SYSTEM]) first
+- **Check for duplicates** - there may be a bug report already describing your issue, so check the [issue tracking system]([INSERT LINK TO YOUR ISSUE TRACKING SYSTEM]) first.
 
 Here's some guidance on submitting a bug issue:
 1. Navigate to our [issue tracking system]([INSERT LINK TO YOUR ISSUE TRACKING SYSTEM]) and file a new issue
@@ -181,7 +179,7 @@ Here's some guidance on submitting a bug issue:
 
 #### Submitting New Feature Issues
 
-We welcome new feature requests to help grow our project. However, please make sure to do the following prior to submitting a bug report:
+We welcome new feature requests to help grow our project. However, please make sure to do the following prior to submitting a new feature request:
 - **Check for duplicates** - there may be a new feature issue already describing your issue, so check the [issue tracking system]([INSERT LINK TO YOUR ISSUE TRACKING SYSTEM]) first
 - **Consider alternatives** - is your feature really needed? Or is there a feature within our project or with a third-party that may help you achieve what you want?
 
@@ -200,7 +198,7 @@ Here's some guidance on submitting a new feature issue:
 
 Security vulnerabilities should **not** be filed to the regular issue tracking system.
 
-Report your security vulnerabilities to (see contact links): [INSERT CONTACT METHOD]
+Report your security vulnerabilities to (see contact links): [INSERT SECURITY CONTACT LINK HERE]
 
 Please be sure to:
 * Indicate the severity of the vulnerability
