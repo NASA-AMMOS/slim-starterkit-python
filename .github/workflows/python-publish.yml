@@ -1,26 +1,37 @@
-# This workflows will upload a Python Package using Twine when a release is created
+# For most projects, this workflow file will not need changing; you simply need
+# to commit it to your repository.
+#
 # For more information see: 
-#     https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
-
-name: Upload Python Package
+#     https://nasa-ammos.github.io/slim/docs/guides/software-lifecycle/application-starter-kits/python-starter-kit/
+#
+# ******** NOTE ********
+# This file publishes to TestPyPi. To enable public PyPi the repository flag 
+# must be removed from the Twine upload call in the "Publish package" block.
+#
+name: "Upload Python Package"
 
 on:
   release:
-    types: [published]
     branches: [main]
+    types: [published]
 
 jobs:
   deploy:
+    name: Deploy
     runs-on: ubuntu-latest
+    permissions:
+      actions: write
+      contents: read
+      security-events: write
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
-        python-version: '3.9'
+        python-version: '3.10'
     - name: Upgrade tooling
       run: |
         python3 -m pip install --upgrade pip

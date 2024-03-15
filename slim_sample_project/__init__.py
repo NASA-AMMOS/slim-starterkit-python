@@ -14,4 +14,4 @@ except ImportError:  # package import
     from .version import __version__
 
 
-ignore = True
+IGNORE = True
