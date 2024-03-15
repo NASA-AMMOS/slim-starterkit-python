@@ -3,7 +3,7 @@ import os
 import sys
 
 from api.text_processor import TextWriter
-from version_tooling import version
+from version_tooling import VERSION
 
 
 def main():
@@ -12,7 +12,7 @@ def main():
     """
     w = TextWriter()
     w.out("Hello World!")
-    w.out(version)
+    w.out(VERSION)
     print("EXITING!")
     sys.exit(os.EX_OK)
 
