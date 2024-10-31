@@ -1,6 +1,7 @@
-# This workflows will upload a Python Package when a release is created
+# This workflows will upload a package when a release is created
 # For more information see:
-#     https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
+#     https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/about-packaging-with-github-actions
+#     https://docs.pypi.org/trusted-publishers/
 
 name: Upload Python Package
 
