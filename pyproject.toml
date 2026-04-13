@@ -1,7 +1,7 @@
 [build-system]
 requires = [
     "importlib-metadata>=3.6;python_version<='3.7'",
-    "setuptools>=62.6",
+    "setuptools>=82.0.1",
     "setuptools_scm[toml]>=6.4.2",
     "wheel>=0.37.1",
 ]
